@@ -28,6 +28,12 @@ RSpec.describe PowerStruct do
       instance.foo = :foo
       expect(instance.foo).to be(:foo)
     end
+
+    it "refuses to initialize with too few arguments" do
+      expect {
+        struct.new(foo: nil)
+      }.to raise_exception(ArgumentError)
+    end
   end
 end
 
