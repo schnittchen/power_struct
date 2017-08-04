@@ -12,6 +12,12 @@ RSpec.describe PowerStruct do
   describe "a power struct with multiple attributes" do
     let(:struct) { described_class.new(:foo, :bar) }
 
+    it "refuses to initialize with simple arguments" do
+      expect {
+        struct.new(1, 2)
+      }.to raise_exception(PowerStruct::ArgumentError)
+    end
+
     it "initializes with named arguments" do
       foo = 1
       bar = 2

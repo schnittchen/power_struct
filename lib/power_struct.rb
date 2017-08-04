@@ -10,7 +10,8 @@ module PowerStruct
       end
       @attributes = attributes
 
-      def initialize(**arguments)
+      def initialize(*flat_arguments, **arguments)
+        raise ArgumentError, "pass parameters as hash arguments" if flat_arguments.any?
         raise ArgumentError if arguments.keys.sort != self.class.attributes.sort
 
         arguments.each do |attribute, value|
