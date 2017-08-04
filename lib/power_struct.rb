@@ -1,6 +1,8 @@
 require "power_struct/version"
 
 module PowerStruct
+  ArgumentError = Class.new(::ArgumentError)
+
   def self.new(*attributes, &block)
     Class.new(Base) do
       class << self

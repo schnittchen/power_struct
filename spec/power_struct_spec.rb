@@ -41,7 +41,7 @@ RSpec.describe PowerStruct do
     it "refuses to initialize with too few arguments" do
       expect {
         struct.new(foo: nil)
-      }.to raise_exception(ArgumentError)
+      }.to raise_exception(PowerStruct::ArgumentError)
     end
   end
 
