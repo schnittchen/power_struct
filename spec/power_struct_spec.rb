@@ -43,6 +43,12 @@ RSpec.describe PowerStruct do
         struct.new(foo: nil)
       }.to raise_exception(PowerStruct::ArgumentError)
     end
+
+    it "refuses to initialize with excess arguments" do
+      expect {
+        struct.new(foo: nil, bar: nil, baz: nil)
+      }.to raise_exception(PowerStruct::ArgumentError)
+    end
   end
 
   describe "a set of two power structs" do
