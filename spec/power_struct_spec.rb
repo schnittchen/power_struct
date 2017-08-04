@@ -67,6 +67,21 @@ RSpec.describe PowerStruct do
     end
   end
 
+  describe "a power struct with default initialization arguments" do
+    let(:struct) { described_class.new(:foo, bar: :bar) }
+
+    it "defaults" do
+      expect(struct.new(foo: :foo).bar).to be(:bar)
+      #raise
+    end
+
+    it "allows defaults to be overwritten on construction" do
+      expect(
+        struct.new(foo: :foo, bar: :not_bar).bar
+      ).to be(:not_bar)
+    end
+  end
+
   describe "extensibility as a class" do
     let(:struct) {
       described_class.new(:foo) do
