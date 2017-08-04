@@ -8,10 +8,10 @@ module PowerStruct
       end
       @attributes = attributes
 
-      def initialize(*arguments)
-        raise ArgumentError if arguments.first.keys != self.class.attributes
+      def initialize(**arguments)
+        raise ArgumentError if arguments.keys != self.class.attributes
 
-        arguments.first.each do |attribute, value|
+        arguments.each do |attribute, value|
           self.public_send("#{attribute}=", value)
         end
       end
