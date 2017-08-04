@@ -5,6 +5,7 @@ Simple `Struct` replacement with mandatory keyword arguments.
 Reasons to use `PowerStruct`:
 
 * Argument order no longer matters
+* Initialization arguments are mandatory by default
 * Cheesy name
 
 
