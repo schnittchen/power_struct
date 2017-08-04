@@ -1,6 +1,6 @@
 # PowerStruct
 
-Simple `Struct` replacement with keyword arguments.
+Simple `Struct` replacement with mandatory keyword arguments.
 
 Reasons to use `PowerStruct`:
 

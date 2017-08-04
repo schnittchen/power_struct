@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Thomas Stratmann"]
   spec.email         = ["thomas.stratmann@9elements.com"]
 
-  spec.summary       = %q{Simple Struct replacement with keyword arguments}
-  spec.description   = %q{Simple Struct replacement with keyword arguments}
+  spec.summary       = %q{Simple Struct replacement with mandatory keyword arguments}
+  spec.description   = %q{Simple Struct replacement with mandatory keyword arguments}
   #spec.homepage      = "TODO: Put your gem's website or public repo URL here."
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
