@@ -15,7 +15,7 @@ RSpec.describe PowerStruct do
     it "refuses to initialize with simple arguments" do
       expect {
         struct.new(1, 2)
-      }.to raise_exception(PowerStruct::ArgumentError)
+      }.to raise_exception(described_class::ArgumentError)
     end
 
     it "initializes with named arguments" do
@@ -47,13 +47,13 @@ RSpec.describe PowerStruct do
     it "refuses to initialize with too few arguments" do
       expect {
         struct.new(foo: nil)
-      }.to raise_exception(PowerStruct::ArgumentError)
+      }.to raise_exception(described_class::ArgumentError)
     end
 
     it "refuses to initialize with excess arguments" do
       expect {
         struct.new(foo: nil, bar: nil, baz: nil)
-      }.to raise_exception(PowerStruct::ArgumentError)
+      }.to raise_exception(described_class::ArgumentError)
     end
   end
 
