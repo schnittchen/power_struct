@@ -1,7 +1,7 @@
 require "power_struct/version"
 
 module PowerStruct
-  def self.new(*attributes)
+  def self.new(*attributes, &block)
     Class.new(Base) do
       class << self
         attr_reader :attributes
@@ -17,6 +17,8 @@ module PowerStruct
       end
 
       attr_accessor(*attributes)
+
+      class_eval(&block) if block
     end
   end
 

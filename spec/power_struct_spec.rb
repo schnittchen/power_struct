@@ -45,5 +45,19 @@ RSpec.describe PowerStruct do
       expect(struct2.new(bar: nil)).not_to respond_to(:foo)
     end
   end
+
+  describe "extensibility as a class" do
+    let(:struct) {
+      described_class.new(:foo) do
+        def extension
+          :extension
+        end
+      end
+    }
+
+    it "is effectively available" do
+      expect(struct.new(foo: nil).extension).to be(:extension)
+    end
+  end
 end
 
