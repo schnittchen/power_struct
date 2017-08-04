@@ -1,5 +1,10 @@
 require "power_struct/version"
 
 module PowerStruct
-  # Your code goes here...
+  def self.new
+    Class.new(Base)
+  end
+
+  class Base
+  end
 end
