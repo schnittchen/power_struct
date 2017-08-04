@@ -13,10 +13,17 @@ module PowerStruct
 
       def initialize(*flat_arguments, **arguments)
         raise ArgumentError, "pass parameters as hash arguments" if flat_arguments.any?
-        raise ArgumentError unless (self.class.mandatory_attributes - arguments.keys).empty?
-        raise ArgumentError unless (
-          arguments.keys - self.class.mandatory_attributes - self.class.attribute_defaults.keys
-        ).empty?
+        unless (self.class.mandatory_attributes - arguments.keys).empty?
+          raise ArgumentError, "missing argument(s) " +
+            (self.class.mandatory_attributes - arguments.keys).map(&:inspect).join(", ")
+        end
+        unless (
+            arguments.keys - self.class.mandatory_attributes - self.class.attribute_defaults.keys
+          ).none?
+          raise ArgumentError, "excess argument(s) " +
+            (arguments.keys - self.class.mandatory_attributes - self.class.attribute_defaults.keys)
+              .map(&:inspect).join(", ")
+        end
 
         self.class.attribute_defaults.each do |attribute, default|
           self.public_send("#{attribute}=", default)
