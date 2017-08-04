@@ -35,5 +35,15 @@ RSpec.describe PowerStruct do
       }.to raise_exception(ArgumentError)
     end
   end
+
+  describe "a set of two power structs" do
+    let(:struct1) { described_class.new(:foo) }
+    let(:struct2) { described_class.new(:bar) }
+
+    it "does not have interference" do
+      expect(struct1.new(foo: nil)).to respond_to(:foo)
+      expect(struct2.new(bar: nil)).not_to respond_to(:foo)
+    end
+  end
 end
 
