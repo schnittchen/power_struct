@@ -1,8 +1,12 @@
 # PowerStruct
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/power_struct`. To experiment with that code, run `bin/console` for an interactive prompt.
+Simple `Struct` replacement with keyword arguments.
 
-TODO: Delete this and the text above, and describe your gem
+Reasons to use `PowerStruct`:
+
+* Argument order no longer matters
+* Cheesy name
+
 
 ## Installation
 
