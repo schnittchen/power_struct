@@ -26,7 +26,19 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require "power_struct"
+
+MyStruct = PowerStruct.new(:attr1, attr2: :attr2_default)
+
+my_struct = MyStruct.new(attr1: "attr1_value")
+my_struct.attr1 # => "attr1_value"
+my_struct.attr2 # => :attr2_default
+my_struct.attr2 = 1
+my_struct.attr2 # => 1
+
+my_struct = MyStruct.new # => raises exception, attr1 is mandatory
+```
 
 ## Development
 
