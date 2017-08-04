@@ -22,6 +22,16 @@ RSpec.describe PowerStruct do
       expect(instance.bar).to be(bar)
     end
 
+    it "initializes with different order of arguments" do
+      foo = 1
+      bar = 2
+
+      instance = struct.new(bar: bar, foo: foo)
+
+      expect(instance.foo).to be(foo)
+      expect(instance.bar).to be(bar)
+    end
+
     it "has accessors" do
       instance = struct.new(foo: nil, bar: nil)
       instance.foo = :foo
