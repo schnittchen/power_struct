@@ -4,6 +4,9 @@ module PowerStruct
   ArgumentError = Class.new(::ArgumentError)
 
   def self.new(*mandatory_attributes, **defaults, &block)
+    raise ArgumentError, "pass attribute names as symbols" unless \
+      mandatory_attributes.all? { |attribute| attribute.is_a?(Symbol) }
+
     Class.new(Base) do
       class << self
         attr_reader :mandatory_attributes, :attribute_defaults

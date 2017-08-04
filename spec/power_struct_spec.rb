@@ -9,6 +9,18 @@ RSpec.describe PowerStruct do
     end
   end
 
+  describe "creating a power struct" do
+    it "does not accept arguments arguments other than symbols" do
+      expect {
+        described_class.new("foo")
+      }.to raise_exception(described_class::ArgumentError)
+
+      expect {
+        described_class.new("foo" => nil)
+      }.to raise_exception(described_class::ArgumentError)
+    end
+  end
+
   describe "a power struct with multiple attributes" do
     let(:struct) { described_class.new(:foo, :bar) }
 
